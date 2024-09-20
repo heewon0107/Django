@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}베스트 셀러{% endblock title %}
+{% block content %}
+  <div style="text-align: center;">
+    <h1>베스트 셀러 목록</h1>
+  </div>
+  {% for item in result %}
+    <div class="mb-3 p-3 rounded
+  {% if forloop.counter == 1 %}bg-danger{% endif %}
+  {% if forloop.counter == 2 %}bg-warning{% endif %}
+  {% if forloop.counter == 3 %}bg-success{% endif %}">
+      <p style="font-weight: bold; font-size: 20px;">
+        {{ item.title }}</p>
+      <p>저자 :
+        {{ item.author }}</p>
+      <p>설명 :
+        {{ item.bestDuration }}</p>
+      <hr>
+    </div>
+  {% endfor %}
+{% endblock content %}
