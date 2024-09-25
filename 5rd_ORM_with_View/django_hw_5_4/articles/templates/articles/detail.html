@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>게시글 상세 페이지</h1>
+    <p>게시글 번호 : {{articles.pk}}</p>
+    <p>제목 : {{articles.title}}</p>
+    <p>생성 시간 : {{articles.created_at}}</p>
+    <p>수정 시간 : {{articles.updated_at}}</p>
+  <hr>
+  <p>게시글 생성 테스트입니다.</p>
+  <hr>
+  <form action="{% url "articles:delete" articles.pk %}" method="GET">
+      <input type="submit" name="delete" value="DELETE">
+  </form>
+  <a href="{% url "articles:index" %}"></a>
+{% endblock content %}

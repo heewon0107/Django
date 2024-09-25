@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+<h1>식당 생성 페이지</h1>
+{% endblock title %}
+{% block content %}
+<form action="{% url "restaurants:create" %}" method="POST">
+<div>
+  <label for="name">
+    식당이름 : <input type="text" name="name" id="">
+  </label>
+</div>
+<div>
+  <label for="description">
+    식당 설명 : <input type="text" name="description" id="">
+  </label>
+</div>
+<div>
+  <label for="address">
+    식당 주소 : <textarea rows='10' cols='30' name="address" id=""></textarea>
+  </label>
+</div>
+<div>
+  <label for="phone">
+    식당 전화번호 : <textarea rows='10' cols='30' name="phone" id=""></textarea>
+  </label>
+</div>
+  {% csrf_token %}
+  <input type="submit" value="CREATE">
+</form>
+<a href="{% url "restaurants:index" %}">[BACK]</a>
+{% endblock content %}

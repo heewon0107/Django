@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="container" action="{% url 'restaurants:create' %}" method="POST">
+    <h1>식당 생성 페이지</h1>
+    {% csrf_token %}
+    <label class = "mb-3" for="name">이름 : </label>
+    <input type="text" id="name" name="name" class="form-control" aria-describedby="passwordHelpBlock"> <br>
+    <label class = "mb-3" for="address">주소 : </label>
+    <input  type="text" id="address" name="address" class="form-control" aria-describedby="passwordHelpBlock">
+    <div id="passwordHelpBlock" class="form-text">
+      주소는 OO시 OO구 OO동 형식으로 작성합니다.
+    </div> <br>
+    <label class = "mb-3" for="phone_number">전화번호 :</label>
+    <input  type="text" id="phone_number" name="phone_number" class="form-control" aria-describedby="passwordHelpBlock">
+    <div id="passwordHelpBlock" class="form-text">
+      전화번호는 특수문자 없이 지역번호를 포함한 숫자만 입력합니다.
+    </div> <br>
+    <label class="mb-3" for="description">식당 소개 </label>
+    <div class="input-group ">
+      <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">
+      CREATE
+    </button>
+    <div>
+      <a href="{% url 'restaurants:index' %}">[BACK]</a>
+    </div>
+  </form>
+{% endblock content %}

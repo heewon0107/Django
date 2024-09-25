@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>맛집 상세 정보</h1>
+{% if todo %}
+<p>식당 번호 : {{todo.pk}}</p>
+<p>식당 이름 : {{todo.name}}</p>
+<p>식당 설명 : {{todo.description}}</p>
+<p>식당 위치 : {{todo.address}}</p>
+<p>전화 번호 : {{todo.phone_number}}</p>
+{% endif %}
+
+{% endblock content %}
